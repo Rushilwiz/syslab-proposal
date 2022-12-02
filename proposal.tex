@@ -1,0 +1,84 @@
+\documentclass[letterpaper,twocolumn,10pt]{article}
+\usepackage{usenix,epsfig,endnotes}
+\usepackage{titlesec}
+\begin{document}
+\titlespacing*{\subsection}{0pt}{1\baselineskip}{1\baselineskip}
+\titlespacing*{\subsubsection}{0pt}{1\baselineskip}{0.25\baselineskip}
+
+%don't want date printed
+\date{}
+
+%make title bold and 14 pt font (Latex default is non-bold, 16 pt)
+\title{\Large \bf Mani Station: A Modern Paradigm Shift Towards Calm Computing}
+
+\author{
+{\rm Rushil Umaretiya}\\
+Thomas Jefferson High School for Science and Technology
+}
+
+\maketitle
+
+\subsection*{Abstract}
+The modern digital society is one that has integrated technology into our daily lives. When this technology is a barrier to entry, but also causes discomfort in the user, there exists systemic suffering. This research investigates the invention of the \textit{calm computer} in order to create a device that does not increase the stress of the user when they seek to use technology in order to complete a task, connect, and improve their lives and their community. Modern technology has implemented dark patterns that drive engagement and multitasking over focused, efficient work, and this project seeks to solve that evil. Combining an e-ink display, quiet hardware, and a custom desktop environment, the Mani Station will be an exploration into the relatively novel field of calm computing.
+
+\section{Purpose}
+
+Byung-Chul Han writes about the current state of the modern technological society in his book \emph{The Burnout Society}~\cite{han_butler_2015}.
+\begin{quote}
+From a pathological standpoint, the incipient twenty-first century is determined neither by bacteria nor by viruses, but by neurons. Neurological illnesses such as depression, attention deficit hyperactivity disorder (ADHD), borderline personality disorder (BPD), and burnout syndrome mark the landscape of pathology at the beginning of the twenty-first century. They are not infections, but infarctions; they do not follow from the negativity of what is immunologically foreign, but from an excess of positivity. Therefore, they elude all technologies and techniques that seek to combat what is alien.
+\end{quote}
+
+The gap that exists in modern technology is one of the calm computer. The personal computer was designed with the intent to lead the user.  A device that allows the user to, without distracting colors or loud notifications, complete the tasks they set out to complete. The calm computer is quietly responsive. It gives you exactly what you need, when you need it, without rushing you along. No distractions. This is the solution that the research seeks to create \cite{calmcomputing}.
+
+More specifically, we are designing a calm, personal computer called the Mani Station. The Mani Station will be a package of tower, e-ink monitor, peripherals, and custom operating system with the chief value of non-obtrusiveness. The Mani Station will be tested across multiple age groups for usability, responsiveness, comfort, and ability to replace other devices. The end goal of this project is to explore the invention of one of the first calm computers. 
+
+\section{Background}
+The Mani Station will consist of a multitude of components that generate an atmosphere for the user to settle down in. Each of these components have a varying level of background knowledge and research backing them. It will be the extent of the background of each part that defines how the workload will be split.
+\subsection{Hardware}
+The hardware behind the Mani Station will rely on minimalism, silence, and facility.
+\subsubsection{Tower}
+The tower's background extends from the first Macintosh to today. There exists a myriad of different computer components that can be used to build out the tower. The final iteration will be a balance of meeting these design rules and keeping it cost-effective. It needs to be functional enough to drive image to the screen and hold the operating system. It needs to be large enough to house the components. Aesthetically muted with wood paneling, it needs to fit on a desk and not impede on the space. Physically muted by the wood, it needs to comply with ISO acoustics standards and produce as little noise as possible \cite{ISO9296}.
+
+Prototypes and the extent of this project will most likely incorporate the Raspberry Pi 4 Model B, which has a 1.5GhZ processor along with a capacity of 8GB of RAM meeting the specs of the system and the monitor \cite{raspberrypi}.
+\subsubsection{E-ink display}
+Hailing from a group of MIT graduates in 1997, e-ink defines a class of display often printing to grayscale that drives images to a screen without external light \cite{vail_2018}. The modern display paradigm of generating light and shining it directly into your retinas has led to an era of screen overexposure that is actively harming adolescent, elderly, and working class users by driving addiction through dark patterns in coloration and screen brightness. One author actually writes that it is our Kantian duty to protect the self from screen overexposure \cite{screenaddiction}\cite{multitaskingaddiction}\cite{kantscreens}.
+
+Researchers have found that the adoption of e-ink monitors and e-readers have allowed users to step away from this epidemic of addiction. While the technology is still fairly novel, significant commercial development has driven e-ink into an era where e-ink devices are able to completely replace current technology.\cite{readability}
+
+The ReMarkable 2 is a fully functional e-ink writer and reader that is able to process writing, store documents, sync documents to the cloud, and allows for PDF annotation. It is able to perform these tasks in near real-time, and the display has come so far from the early iterations of competitors like the kindle. The Remarkable has proven that these displays have the power and speed to be able to completely supplement small personal computers \cite{remarkable}. It would be valid to consider this research an extension of the Remarkable, building off of the foundation that it is laid.
+
+The first Mani Station will be built using a Dasung 253 Paperlike monitor. The Paperlike is a large 25.3" retina display that boasts a 3200*1800 resolution without any backlight. It also is anti-glare and high definition with adjustable contrast settings. It accepts HDMI input and is certainly compatible with the Raspberry Pi, according to published guides on connecting both components \cite{monitorconnection}. The issue that the Paperlike presents is its price tag of \$1,899.00 USD as of writing. Further iterations of the Mani Station will seek to lower prices and develop a solution that is able to create an affordable replacement for users.
+\subsection{Software}
+The software behind the Mani Station will focus on a balance of ease of use and performance while incorporating the same features and applications that a user expects from this type of machine.
+\subsubsection{Kernel}
+The base kernel for the Mani Station will be Linux. The operating system for the extent of this project will most likely be a fork of Debian 11, a stable but extensive choice. The Debian setup script will be replaced with a custom install guide that is fine-tuned for the Mani Station in order to install all of the needed components and network settings without the user needing to bat an eye.
+\subsubsection{Desktop environment}
+X11 will serve as the display server for the project. The X11 display server is what runs modern desktop environments and will house the Mani Station's custom DE as well. This implementation will be based off of the automated signage at Thomas Jefferson High School for Science and Technology. On boot the signage runs the operating system and subsequently runs the X11 server with a single chromium application opening the website that hosts the signage information. The solution is very lightweight on the Intel Compute Sticks that run the displays, and this method of pushing a prototype DE looks to be effective for our application \cite{signage}.
+\subsubsection{Operating System}
+The desktop environment is going to be the most vital component of the project, and will be what truly ties the user to the system. Modern operating systems such as Windows 11 present the user with all of their tools at once. No defined direction. The Mani Station will take a bit of this freedom away in order to preserve the user's sanity. The minimal design of the operating system will be based off of what is presented by the Remarkable 2 and the MEMENTO system. MEMENTO was a piece of research that combined a smart watch and an e-ink tablet in order to create a more comfortable environment for dementia patients. They were able to successfully reduce fear in technology and increase quality of life in some patients \cite{dementiaux}. This is what the Mani Station seeks to encapsulate. Simple and light on the eyes, with very concise UI in order to foster a calmer UX.
+
+The user will also not be permitted to multitask. At first, the Mani Station will only allow one application open at a time, but the design of the system will strongly discourage users from multitasking, which not only drives stress but has been proven to reduce efficiency. Air traffic control simulations have shown that controllers are not only too stressed to be efficient, but are more prone to making mistakes as stimuli increases.\cite{multitasking} Users should not be put in the position of an air traffic controller.
+
+From a technical standpoint, development on the Desktop Enviornment will begin in Electron. Electron is a modern cross-platform desktop application packager, and the desktop environment, file manager, applications, and all other components will be built out in electron and deployed to the system as a bare app. Unfortunately, Electron does have its own performance compromises, and while it serves as a highly capable framework for single applications, we will need to seek out a better solution for the long term.
+
+One next step after the Electron prototype would be the RustyHermit library, which allows the developer to design unikernel applications built in Rust. While it's primary purpose is for containerisation, we can also use it for our project. For reference, a unikernel application includes a bootloader, kernel, and application. This means that you wouldn't even need to install an operating system for the Desktop Environment to live on; the unikernel runs on bare metal.
+
+\subsection{Interface}
+Connecting the system and the user is the interface. While this is not going to be a focus of the project, it'll definitely be a creative consideration as the research grows. The contemporary paradigm of keyboard and mouse has hit a roadblock in terms of novel research. Keyboard layouts aren't getting any better \cite{keyboards}. The Mani Station may utilize a stylus and pad or alternative method for controlling a cursor on a screen, along with text to speech in order to remove the limit of typing speed from the user.
+
+\section{Methodology}
+Designing the Mani Station will come in the two phases as listed by the background. Software will be prioritized over hardware. Software development will start on development machines such as those owned by the researcher and the institution, and the pure operating system will need to be fully completed before work can begin on development of the hardware ecosystem. Interface will be considered last. Electron development is agnostic to what machine its running on, so development will not be restricted geographically until work on the hardware begins.
+
+The base system and kernel will be developed first, and then applications will be developed until the system is able to meet the conditions defined in the Purpose section. After a prototype operating system is complete, a simple housing for the hardware will be developed, and finally prototype interface tools will be explored.
+
+{\footnotesize \bibliographystyle{ieeetr}
+\bibliography{proposal}}
+
+\end{document}
+
+
+
+
+
+
+
